@@ -74,14 +74,13 @@ function Pokedex() {
     }
   }
 
-
   return (
     <>
       <div className={styles.buttonContainer}>
         <button onClick={handlePrevPage} disabled={page === 0}>
-          Previous Page
+          Back
         </button>
-        <button onClick={handleNextPage}>Next Page</button>
+        <button onClick={handleNextPage}>Next</button>
       </div>
       <div className={styles.pokemonContainer}>
         {pokemon.map((pkmn, index) => (
@@ -94,9 +93,10 @@ function Pokedex() {
             }}
             onClick={() => {
               setSelectedPokemon(pkmn);
-              setLargeImage(pkmn.sprites.other["official-artwork"].front_default);
-            }}
-          >
+              setLargeImage(
+                pkmn.sprites.other["official-artwork"].front_default
+              );
+            }}>
             <div className={styles.pokemonImageContainer}>
               <img
                 src={pkmn.sprites.front_default}
@@ -107,42 +107,49 @@ function Pokedex() {
             <div className={styles.pokemonInfo}>
               <p>#{page + index + 1}</p>
               <p className={styles.pokemon}>{pkmn.name}</p>
-                {pkmn.types.map((type) => (
-                  <div
-                    key={type.type.name}
-                    className={styles.pokemonType}
-                    style={{ backgroundColor: (type.type.name) }}
-                  >
-                    {type.type.name}
-                  </div>
-                ))}
+              {pkmn.types.map((type) => (
+                <div
+                  key={type.type.name}
+                  className={styles.pokemonType}
+                  style={{ backgroundColor: type.type.name }}>
+                  {type.type.name}
+                </div>
+              ))}
             </div>
           </div>
         ))}
       </div>
-  
+
       {selectedPokemon && (
-        <div className={styles.modelContainer} onClick={() => setSelectedPokemon(null)}>
+        <div
+          className={styles.modelContainer}
+          onClick={() => setSelectedPokemon(null)}>
           <div className={styles.modelContent}>
             <img
-              src={selectedPokemon.sprites.other["official-artwork"].front_default}
+              src={
+                selectedPokemon.sprites.other["official-artwork"].front_default
+              }
               alt={selectedPokemon.name}
               className={styles.modelPokemonImage}
             />
             <div className={styles.modelPokemonInfo}>
               <h2>{selectedPokemon.name}</h2>
-                {selectedPokemon.types.map((type) => (
-                  <div
-                    key={type.type.name}
-                    className={styles.modelPokemonType}
-                    style={{ backgroundColor: (type.type.name) }}
-                  >
-                    {type.type.name}
-                  </div>
-                ))}
+              {selectedPokemon.types.map((type) => (
+                <div
+                  key={type.type.name}
+                  className={styles.modelPokemonType}
+                  style={{ backgroundColor: type.type.name }}>
+                  {type.type.name}
+                </div>
+              ))}
               <p>Height: {selectedPokemon.height / 10} m</p>
               <p>Weight: {selectedPokemon.weight / 10} kg</p>
-              <p>Abilities: {selectedPokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+              <p>
+                Abilities:{" "}
+                {selectedPokemon.abilities
+                  .map((a) => a.ability.name)
+                  .join(", ")}
+              </p>
             </div>
           </div>
         </div>

@@ -1,20 +1,20 @@
 .navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #EEEEEE;
+  list-style-type: none;
+  margin: 10;
+  padding: 0;
+  overflow: hidden;
+  background-color: #800077;
 }
 
 .navbar li {
-    float:left;
+  float: left;
 }
 
 .navbar li a {
-    display: block;
-    color: #000000;
-    font-weight:bold;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-family: 'Trebuchet MS';
+  display: block;
+  color: #ffffff;
+  margin: 10px;
+  padding: 16px;
+  text-decoration: none;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
